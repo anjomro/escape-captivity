@@ -7,8 +7,19 @@
 
 **Table of Contents**
 
+- [About](#about)
 - [Installation](#installation)
 - [License](#license)
+
+## About
+
+This is a tool designed to automate the process of solving captive portals, commonly found in public Wi-Fi networks.
+
+Currently solvers especially for multiple German railway providers are implemented.
+
+This tool is only intended to be used for educational purposes and should not be used in real-world scenarios,
+as it may violate terms of sevice.
+Use at your own risk, no liability is assumed.
 
 ## Installation
 
