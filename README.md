@@ -9,6 +9,7 @@
 
 - [About](#about)
 - [Installation](#installation)
+- [Usage](#usage)
 - [License](#license)
 
 ## About
@@ -25,6 +26,13 @@ Use at your own risk, no liability is assumed.
 
 ```console
 pip install escape-captivity
+```
+
+# Usage
+
+Simply use any terminal to run the following command:
+```console
+escape-captivity
 ```
 
 ## License
