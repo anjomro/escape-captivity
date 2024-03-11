@@ -17,10 +17,10 @@ class IceSolver(BaseSolver):
     def solve(self, portal_url: ParseResult) -> bool:
         # Generate some random CSRF token
         csrf_token = ''.join(random.choices(string.ascii_letters + string.digits, k=33))
-        r = httpx.post(f"{portal_url.scheme}://{portal_url.netloc}/de/",
+        r = httpx.post(f"https://{portal_url.netloc}/de/",
                           data={"login": "true", "CSRFToken": csrf_token}, cookies=dict(csrf=csrf_token),
                           follow_redirects=False)
 
-        if r.status_code in [302, 200]:
+        if r.status_code in [302, 301, 200]:
             return True
         return False
