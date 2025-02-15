@@ -4,7 +4,7 @@ from typing import Dict
 from urllib.parse import ParseResult, urlparse
 import re
 
-import requests
+import httpx
 
 from .base import BaseSolver
 
@@ -15,7 +15,7 @@ class DBRegioSouthEastSolver(BaseSolver):
 
     def solve(self, portal_url: ParseResult) -> bool:
         query_parameters: Dict = dict([x.split("=", 1) for x in  portal_url.query.split("&")])
-        r = requests.post(f"https://{portal_url.netloc}/{portal_url.path}",
+        r = httpx.post(f"https://{portal_url.netloc}/{portal_url.path}",
                           data={
                                   "haveTerms": "1",
                                   "termsOK": "on",
@@ -36,7 +36,7 @@ class DBRegioSouthEastSolver(BaseSolver):
             if logon_url_matches:
                 #
                 logon_url = logon_url_matches.group(1).replace("&amp;", "&")
-                r2 = requests.get(logon_url, follow_redirects=False)
+                r2 = httpx.get(logon_url, follow_redirects=False)
                 if r2.status_code in [302, 200]:
                     return True
         return False
